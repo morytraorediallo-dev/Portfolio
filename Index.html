@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio | Mory Traore Diallo</title>
-    <meta name="description" content="Portfolio de Mory Traore Diallo, Expert en Stratégie Digitale & Community Management.">
+    <title>Portfolio Vidéo | Mory Traore Diallo</title>
+    <meta name="description" content="Portfolio de Mory Traore Diallo - Expert Stratégie Digitale & Vidéo">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script>
@@ -12,9 +12,10 @@
             theme: {
                 extend: {
                     colors: {
-                        primary: '#1e3a8a', // Un bleu foncé professionnel
-                        secondary: '#3b82f6', // Un bleu plus vif pour les accents
+                        primary: '#2563eb', 
+                        secondary: '#f59e0b', 
                         dark: '#0f172a',
+                        darker: '#020617',
                         light: '#f8fafc',
                     },
                     fontFamily: {
@@ -27,378 +28,257 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
         
-        .blob {
-            position: absolute;
-            filter: blur(40px);
-            z-index: -1;
-            opacity: 0.4;
-            animation: move 10s infinite alternate;
-        }
-        @keyframes move {
-            from { transform: translate(0, 0) scale(1); }
-            to { transform: translate(20px, -20px) scale(1.1); }
+        /* Effet de verre pour le menu */
+        .glass-nav {
+            background: rgba(15, 23, 42, 0.8);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
         }
     </style>
 </head>
 <body class="bg-slate-50 text-slate-800 font-sans antialiased">
 
-    <!-- Navigation -->
-    <nav class="fixed w-full z-50 bg-white/90 backdrop-blur-md shadow-sm transition-all duration-300" id="navbar">
+    <!-- Navigation (Style Sombre pour faire ressortir le contenu) -->
+    <nav class="fixed w-full z-50 glass-nav border-b border-white/10 transition-all duration-300" id="navbar">
         <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="#" class="text-2xl font-bold text-primary tracking-tighter">MTD<span class="text-secondary">.</span></a>
+            <a href="#" class="text-2xl font-bold text-white tracking-tighter">Mory<span class="text-primary">.TV</span></a>
             
             <!-- Desktop Menu -->
-            <div class="hidden md:flex space-x-8 font-medium">
-                <a href="#about" class="hover:text-secondary transition-colors">À propos</a>
-                <a href="#competences" class="hover:text-secondary transition-colors">Compétences</a>
-                <a href="#experience" class="hover:text-secondary transition-colors">Expériences</a>
-                <a href="#formation" class="hover:text-secondary transition-colors">Formation</a>
-                <a href="#contact" class="px-5 py-2 bg-primary text-white rounded-full hover:bg-blue-800 transition-colors shadow-md">Me Contacter</a>
+            <div class="hidden md:flex space-x-8 font-medium text-slate-300">
+                <a href="#about" class="hover:text-white transition-colors">À propos</a>
+                <a href="#portfolio" class="text-white font-bold border-b-2 border-primary">Mes Vidéos</a>
+                <a href="#experience" class="hover:text-white transition-colors">Parcours</a>
+                <a href="#contact" class="px-5 py-2 bg-primary text-white rounded-full hover:bg-blue-600 transition-colors">Me Contacter</a>
             </div>
 
             <!-- Mobile Menu Button -->
-            <button id="mobile-menu-btn" class="md:hidden text-2xl text-primary focus:outline-none">
+            <button id="mobile-menu-btn" class="md:hidden text-2xl text-white focus:outline-none">
                 <i class="fas fa-bars"></i>
             </button>
         </div>
 
         <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden md:hidden bg-white border-t p-4 absolute w-full shadow-lg">
-            <div class="flex flex-col space-y-4 font-medium text-center">
-                <a href="#about" class="py-2 hover:text-secondary" onclick="toggleMenu()">À propos</a>
-                <a href="#competences" class="py-2 hover:text-secondary" onclick="toggleMenu()">Compétences</a>
-                <a href="#experience" class="py-2 hover:text-secondary" onclick="toggleMenu()">Expériences</a>
-                <a href="#formation" class="py-2 hover:text-secondary" onclick="toggleMenu()">Formation</a>
-                <a href="#contact" class="py-2 text-secondary font-bold" onclick="toggleMenu()">Me Contacter</a>
+        <div id="mobile-menu" class="hidden md:hidden bg-darker border-t border-white/10 p-4 absolute w-full shadow-lg">
+            <div class="flex flex-col space-y-4 font-medium text-center text-slate-300">
+                <a href="#about" class="py-2 hover:text-white" onclick="toggleMenu()">À propos</a>
+                <a href="#portfolio" class="py-2 text-white font-bold bg-white/10 rounded-lg" onclick="toggleMenu()">Mes Vidéos</a>
+                <a href="#experience" class="py-2 hover:text-white" onclick="toggleMenu()">Parcours</a>
+                <a href="#contact" class="py-2 text-primary font-bold" onclick="toggleMenu()">Me Contacter</a>
             </div>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <section class="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden">
-        <!-- Background Elements -->
-        <div class="blob bg-blue-300 w-64 h-64 rounded-full top-20 left-10 mix-blend-multiply"></div>
-        <div class="blob bg-indigo-300 w-72 h-72 rounded-full bottom-20 right-10 mix-blend-multiply animation-delay-2000"></div>
+    <section id="about" class="relative min-h-[90vh] flex items-center justify-center pt-20 overflow-hidden bg-darker text-white">
+        <!-- Background Gradients -->
+        <div class="absolute top-0 left-0 w-full h-full overflow-hidden z-0">
+            <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/20 rounded-full blur-[100px]"></div>
+            <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-purple-600/20 rounded-full blur-[100px]"></div>
+        </div>
 
-        <div class="container mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
-            <div class="order-2 md:order-1 text-center md:text-left animate-fade-in-up">
-                <span class="inline-block py-1 px-3 rounded-full bg-blue-100 text-primary text-sm font-semibold mb-4">
-                    Disponible pour de nouvelles opportunités
-                </span>
-                <h1 class="text-4xl md:text-6xl font-bold text-dark mb-4 leading-tight">
-                    Bonjour, je suis <br>
-                    <span class="text-primary">Mory Traore Diallo</span>
+        <div class="container mx-auto px-6 relative z-10 grid md:grid-cols-2 gap-12 items-center">
+            <div class="text-center md:text-left">
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 border border-white/20 text-sm font-medium text-primary mb-6">
+                    <span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
+                    Disponible pour collaborations
+                </div>
+                <h1 class="text-4xl md:text-6xl font-bold mb-6 leading-tight">
+                    Stratégie Digitale & <br>
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500">Création Vidéo</span>
                 </h1>
-                <h2 class="text-xl md:text-2xl text-slate-600 mb-6 font-light">
-                    Expert en Stratégie Digitale & <br>Community Management
-                </h2>
-                <p class="text-slate-500 mb-8 max-w-lg mx-auto md:mx-0 leading-relaxed">
-                    Professionnel de la communication digitale avec un solide background technique en Génie Informatique. Expert en création de contenu vidéo et croissance d'audience.
+                <p class="text-slate-400 mb-8 max-w-lg mx-auto md:mx-0 text-lg">
+                    Je transforme vos idées en contenus viraux (Reels, TikTok). Expert en croissance d'audience avec un background technique en Génie Informatique.
                 </p>
                 <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
-                    <a href="#contact" class="px-8 py-3 bg-primary text-white rounded-lg hover:bg-blue-800 transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-1">
-                        Discutons de vos projets
+                    <a href="#portfolio" class="px-8 py-4 bg-primary text-white rounded-lg hover:bg-blue-600 transition-all font-bold flex items-center justify-center gap-2">
+                        <i class="fas fa-play-circle"></i> Voir mes réalisations
                     </a>
-                    <a href="#experience" class="px-8 py-3 border border-slate-300 bg-white text-slate-700 rounded-lg hover:bg-slate-50 transition-all hover:border-secondary">
-                        Voir mon parcours
+                    <a href="#contact" class="px-8 py-4 border border-white/20 hover:bg-white/10 rounded-lg transition-all text-center">
+                        Me contacter
                     </a>
                 </div>
+            </div>
+            
+            <!-- Hero Visual (Abstract Phone) -->
+            <div class="flex justify-center md:justify-end">
+                <div class="relative w-64 h-[500px] bg-gray-900 rounded-[2.5rem] border-8 border-gray-800 shadow-2xl overflow-hidden transform rotate-[-5deg] hover:rotate-0 transition-all duration-500">
+                    <!-- Screen Content -->
+                    <div class="absolute inset-0 bg-gray-800 flex flex-col">
+                        <!-- Header Mockup -->
+                        <div class="h-14 bg-gray-900/50 backdrop-blur flex items-center justify-between px-4 pt-4">
+                            <div class="w-8 h-8 rounded-full bg-gray-600"></div>
+                            <div class="w-20 h-4 rounded-full bg-gray-600"></div>
+                        </div>
+                        <!-- Video Area Mockup -->
+                        <div class="flex-1 bg-gradient-to-b from-gray-700 to-gray-900 flex items-center justify-center relative">
+                            <i class="fas fa-play text-4xl text-white/50"></i>
+                            
+                            <!-- Floating Stats -->
+                            <div class="absolute bottom-20 right-4 flex flex-col gap-4 text-white">
+                                <div class="flex flex-col items-center gap-1">
+                                    <i class="fas fa-heart text-2xl"></i>
+                                    <span class="text-xs">12k</span>
+                                </div>
+                                <div class="flex flex-col items-center gap-1">
+                                    <i class="fas fa-comment text-2xl"></i>
+                                    <span class="text-xs">450</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION PORTFOLIO VIDÉO (NOUVEAU) -->
+    <section id="portfolio" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-dark mb-4">Mes Réalisations</h2>
+                <div class="w-20 h-1 bg-primary mx-auto rounded-full mb-4"></div>
+                <p class="text-slate-600 max-w-2xl mx-auto">
+                    Exemples de contenus TikTok, Reels et montages promotionnels.
+                    <br><span class="text-sm text-slate-400 italic">(Cliquez sur les placeholders pour imaginer vos vidéos ici)</span>
+                </p>
+            </div>
+
+            <!-- Grid Vidéos (Format Vertical Smartphone) -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+
+                <!-- VIDÉO 1 -->
+                <div class="group relative rounded-2xl overflow-hidden shadow-lg bg-black aspect-[9/16] border border-gray-200">
+                    <!-- Placeholder Image (A remplacer par votre miniature) -->
+                    <div class="absolute inset-0 bg-gradient-to-br from-blue-900 to-slate-900 flex items-center justify-center group-hover:scale-105 transition-transform duration-500">
+                        <!-- Icône Play -->
+                        <div class="w-16 h-16 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center group-hover:bg-primary transition-colors cursor-pointer">
+                            <i class="fas fa-play text-2xl text-white pl-1"></i>
+                        </div>
+                    </div>
+                    
+                    <!-- Info Overlay -->
+                    <div class="absolute bottom-0 left-0 w-full p-6 bg-gradient-to-t from-black/90 to-transparent">
+                        <span class="bg-primary text-white text-xs px-2 py-1 rounded mb-2 inline-block">TikTok</span>
+                        <h3 class="text-white font-bold text-lg">Nextan Mali Promo</h3>
+                        <p class="text-slate-300 text-sm">Montage dynamique & Storytelling</p>
+                    </div>
+
+                    <!-- NOTE POUR MORY: Pour mettre une vraie vidéo, supprimez tout ce qui est dans ce DIV et mettez : 
+                    <video src="votre-video.mp4" controls class="w-full h-full object-cover"></video> 
+                    -->
+                </div>
+
+                <!-- VIDÉO 2 -->
+                <div class="group relative rounded-2xl overflow-hidden shadow-lg bg-black aspect-[9/16] border border-gray-200">
+                    <div class="absolute inset-0 bg-gradient-to-br from-purple-900 to-slate-900 flex items-center justify-center group-hover:scale-105 transition-transform duration-500">
+                        <div class="w-16 h-16 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center group-hover:bg-purple-600 transition-colors cursor-pointer">
+                            <i class="fas fa-play text-2xl text-white pl-1"></i>
+                        </div>
+                    </div>
+                    
+                    <div class="absolute bottom-0 left-0 w-full p-6 bg-gradient-to-t from-black/90 to-transparent">
+                        <span class="bg-pink-600 text-white text-xs px-2 py-1 rounded mb-2 inline-block">Instagram Reels</span>
+                        <h3 class="text-white font-bold text-lg">Point Chaud Event</h3>
+                        <p class="text-slate-300 text-sm">Couverture d'événement & Interview</p>
+                    </div>
+                </div>
+
+                <!-- VIDÉO 3 -->
+                <div class="group relative rounded-2xl overflow-hidden shadow-lg bg-black aspect-[9/16] border border-gray-200">
+                    <div class="absolute inset-0 bg-gradient-to-br from-green-900 to-slate-900 flex items-center justify-center group-hover:scale-105 transition-transform duration-500">
+                        <div class="w-16 h-16 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center group-hover:bg-green-600 transition-colors cursor-pointer">
+                            <i class="fas fa-play text-2xl text-white pl-1"></i>
+                        </div>
+                    </div>
+                    
+                    <div class="absolute bottom-0 left-0 w-full p-6 bg-gradient-to-t from-black/90 to-transparent">
+                        <span class="bg-blue-400 text-white text-xs px-2 py-1 rounded mb-2 inline-block">Campagne Ads</span>
+                        <h3 class="text-white font-bold text-lg">BIBA Immobilier</h3>
+                        <p class="text-slate-300 text-sm">Présentation bien immobilier</p>
+                    </div>
+                </div>
+
+            </div>
+            
+            <div class="mt-12 text-center">
+                 <a href="#contact" class="inline-flex items-center gap-2 text-primary font-bold hover:underline">
+                    Voir plus sur mes réseaux <i class="fas fa-arrow-right"></i>
+                 </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section (Compact) -->
+    <section id="competences" class="py-16 bg-slate-50">
+        <div class="container mx-auto px-6">
+            <h2 class="text-2xl font-bold text-dark mb-8 text-center">Compétences Clés</h2>
+            <div class="flex flex-wrap justify-center gap-4">
+                <span class="px-6 py-3 bg-white shadow-sm rounded-xl text-dark font-medium border border-slate-200"><i class="fab fa-tiktok text-pink-500 mr-2"></i>TikTok & Reels</span>
+                <span class="px-6 py-3 bg-white shadow-sm rounded-xl text-dark font-medium border border-slate-200"><i class="fas fa-chart-line text-blue-500 mr-2"></i>Analyse de données</span>
+                <span class="px-6 py-3 bg-white shadow-sm rounded-xl text-dark font-medium border border-slate-200"><i class="fas fa-bullhorn text-orange-500 mr-2"></i>Publicité (Ads)</span>
+                <span class="px-6 py-3 bg-white shadow-sm rounded-xl text-dark font-medium border border-slate-200"><i class="fas fa-laptop-code text-indigo-500 mr-2"></i>Dév. Web & Maintenance</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Timeline -->
+    <section id="experience" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-dark">Mon Parcours</h2>
+            </div>
+            
+            <div class="max-w-3xl mx-auto space-y-8 pl-4 border-l-2 border-slate-200">
                 
-                <div class="mt-12 flex items-center justify-center md:justify-start gap-6 text-slate-400">
-                    <a href="#" class="hover:text-primary transition-colors text-2xl"><i class="fab fa-linkedin"></i></a>
-                    <a href="#" class="hover:text-primary transition-colors text-2xl"><i class="fab fa-instagram"></i></a>
-                    <a href="#" class="hover:text-primary transition-colors text-2xl"><i class="fas fa-envelope"></i></a>
-                </div>
-            </div>
-            
-            <div class="order-1 md:order-2 flex justify-center relative">
-                <div class="relative w-64 h-64 md:w-80 md:h-80">
-                    <div class="absolute inset-0 bg-secondary rounded-full opacity-10 blur-2xl transform translate-x-4 translate-y-4"></div>
-                    <!-- Placeholder for image - using a generic avatar since actual image wasn't extracted as file -->
-                    <div class="w-full h-full rounded-full border-4 border-white shadow-2xl overflow-hidden bg-white relative z-10 flex items-center justify-center bg-gradient-to-br from-slate-100 to-slate-200">
-                        <i class="fas fa-user text-slate-300 text-6xl md:text-8xl"></i>
-                        <!-- Note: Remplacez l'icône ci-dessus par votre photo réelle : <img src="votre-photo.jpg" alt="Mory Traore Diallo" class="w-full h-full object-cover"> -->
-                    </div>
-                    <!-- Decorative elements -->
-                    <div class="absolute -bottom-4 -right-4 bg-white p-4 rounded-xl shadow-lg z-20 animate-bounce delay-700">
-                        <div class="flex items-center gap-3">
-                            <div class="bg-green-100 p-2 rounded-full text-green-600">
-                                <i class="fas fa-chart-line"></i>
-                            </div>
-                            <div>
-                                <p class="text-xs text-slate-500">Croissance</p>
-                                <p class="font-bold text-dark">Expert</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Skills Section -->
-    <section id="competences" class="py-20 bg-white">
-        <div class="container mx-auto px-6">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold text-dark mb-4">Mes Compétences</h2>
-                <div class="w-20 h-1 bg-secondary mx-auto rounded-full"></div>
-                <p class="mt-4 text-slate-600">Une double expertise : Technique & Créative</p>
-            </div>
-
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
-                <!-- Skill Card 1 -->
-                <div class="p-6 bg-slate-50 rounded-xl hover:shadow-md transition-all border border-slate-100 text-center group">
-                    <div class="w-14 h-14 mx-auto bg-blue-100 text-blue-600 rounded-full flex items-center justify-center mb-4 group-hover:bg-blue-600 group-hover:text-white transition-colors">
-                        <i class="fas fa-hashtag text-2xl"></i>
-                    </div>
-                    <h3 class="font-bold text-lg mb-2">Réseaux Sociaux</h3>
-                    <p class="text-sm text-slate-500">Community Management & Engagement</p>
+                <!-- Item 1 -->
+                <div class="relative pl-8">
+                    <div class="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-primary border-4 border-white shadow"></div>
+                    <div class="text-sm text-primary font-bold mb-1">2023 - 2024</div>
+                    <h3 class="text-xl font-bold text-dark">Directeur Commercial & Digital</h3>
+                    <p class="text-slate-500 font-medium mb-2">Nextan Mali</p>
+                    <p class="text-slate-600">Pilotage stratégie, Création contenu vidéo, Analyse KPIs.</p>
                 </div>
 
-                <!-- Skill Card 2 -->
-                <div class="p-6 bg-slate-50 rounded-xl hover:shadow-md transition-all border border-slate-100 text-center group">
-                    <div class="w-14 h-14 mx-auto bg-purple-100 text-purple-600 rounded-full flex items-center justify-center mb-4 group-hover:bg-purple-600 group-hover:text-white transition-colors">
-                        <i class="fas fa-video text-2xl"></i>
-                    </div>
-                    <h3 class="font-bold text-lg mb-2">Création de Contenu</h3>
-                    <p class="text-sm text-slate-500">Vidéo (TikTok/Reels) & Visuels</p>
+                <!-- Item 2 -->
+                <div class="relative pl-8">
+                    <div class="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-slate-300 border-4 border-white shadow"></div>
+                    <div class="text-sm text-slate-500 font-bold mb-1">2022 - 2023</div>
+                    <h3 class="text-xl font-bold text-dark">Chef du Personnel & Com. Interne</h3>
+                    <p class="text-slate-500 font-medium mb-2">Point Chaud</p>
+                    <p class="text-slate-600">Supports visuels, Animation page marque.</p>
                 </div>
 
-                <!-- Skill Card 3 -->
-                <div class="p-6 bg-slate-50 rounded-xl hover:shadow-md transition-all border border-slate-100 text-center group">
-                    <div class="w-14 h-14 mx-auto bg-green-100 text-green-600 rounded-full flex items-center justify-center mb-4 group-hover:bg-green-600 group-hover:text-white transition-colors">
-                        <i class="fas fa-chart-pie text-2xl"></i>
-                    </div>
-                    <h3 class="font-bold text-lg mb-2">Stratégie & Analytics</h3>
-                    <p class="text-sm text-slate-500">Analyse KPIs, Audience & Croissance</p>
+                <!-- Item 3 -->
+                <div class="relative pl-8">
+                    <div class="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-slate-300 border-4 border-white shadow"></div>
+                    <div class="text-sm text-slate-500 font-bold mb-1">2021 - 2022</div>
+                    <h3 class="text-xl font-bold text-dark">Responsable Commercial & Marketing</h3>
+                    <p class="text-slate-500 font-medium mb-2">BIBA Sénégal</p>
+                    <p class="text-slate-600">Stratégies digitales, Vente immobilière.</p>
                 </div>
 
-                <!-- Skill Card 4 -->
-                <div class="p-6 bg-slate-50 rounded-xl hover:shadow-md transition-all border border-slate-100 text-center group">
-                    <div class="w-14 h-14 mx-auto bg-orange-100 text-orange-600 rounded-full flex items-center justify-center mb-4 group-hover:bg-orange-600 group-hover:text-white transition-colors">
-                        <i class="fas fa-laptop-code text-2xl"></i>
-                    </div>
-                    <h3 class="font-bold text-lg mb-2">Développement Web</h3>
-                    <p class="text-sm text-slate-500">Maintenance & SEO</p>
-                </div>
-            </div>
-
-            <!-- Additional Skills Tags -->
-            <div class="mt-12 flex flex-wrap justify-center gap-3">
-                <span class="px-4 py-2 bg-slate-100 rounded-full text-slate-600 text-sm font-medium">Meta Ads</span>
-                <span class="px-4 py-2 bg-slate-100 rounded-full text-slate-600 text-sm font-medium">Gestion de crise en ligne</span>
-                <span class="px-4 py-2 bg-slate-100 rounded-full text-slate-600 text-sm font-medium">Référencement (SEO)</span>
-                <span class="px-4 py-2 bg-slate-100 rounded-full text-slate-600 text-sm font-medium">Analyse d'audience</span>
-                <span class="px-4 py-2 bg-slate-100 rounded-full text-slate-600 text-sm font-medium">Français (Maternel)</span>
-                <span class="px-4 py-2 bg-slate-100 rounded-full text-slate-600 text-sm font-medium">Anglais (Courant)</span>
-                <span class="px-4 py-2 bg-slate-100 rounded-full text-slate-600 text-sm font-medium">Espagnol (Notions)</span>
-            </div>
-        </div>
-    </section>
-
-    <!-- Experience Section -->
-    <section id="experience" class="py-20 bg-slate-50">
-        <div class="container mx-auto px-6">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold text-dark mb-4">Expériences Professionnelles</h2>
-                <div class="w-20 h-1 bg-secondary mx-auto rounded-full"></div>
-            </div>
-
-            <div class="max-w-4xl mx-auto space-y-8 relative before:absolute before:inset-0 before:ml-5 before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-gradient-to-b before:from-transparent before:via-slate-300 before:to-transparent">
-
-                <!-- Job 1 -->
-                <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active">
-                    <div class="flex items-center justify-center w-10 h-10 rounded-full border border-white bg-slate-300 group-[.is-active]:bg-primary text-slate-500 group-[.is-active]:text-white shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2">
-                        <i class="fas fa-briefcase text-sm"></i>
-                    </div>
-                    <div class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] p-6 bg-white rounded-xl shadow-sm border border-slate-100">
-                        <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-2">
-                            <h3 class="font-bold text-lg text-dark">Directeur Commercial & Com. Digitale</h3>
-                            <span class="text-xs font-semibold px-2 py-1 bg-blue-50 text-blue-600 rounded">2023 - 2024</span>
-                        </div>
-                        <div class="text-secondary font-medium text-sm mb-3">Nextan Mali | Bamako</div>
-                        <ul class="text-slate-600 text-sm space-y-2 list-disc list-inside">
-                            <li>Pilotage complet de la stratégie digitale et commerciale.</li>
-                            <li>Création de contenus visuels et vidéos impactants.</li>
-                            <li>Analyse des KPIs et optimisation continue des performances digitales.</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- Job 2 -->
-                <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active">
-                    <div class="flex items-center justify-center w-10 h-10 rounded-full border border-white bg-slate-300 group-[.is-active]:bg-secondary text-slate-500 group-[.is-active]:text-white shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2">
-                        <i class="fas fa-users text-sm"></i>
-                    </div>
-                    <div class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] p-6 bg-white rounded-xl shadow-sm border border-slate-100">
-                        <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-2">
-                            <h3 class="font-bold text-lg text-dark">Chef du Personnel & Com. Interne</h3>
-                            <span class="text-xs font-semibold px-2 py-1 bg-blue-50 text-blue-600 rounded">2022 - 2023</span>
-                        </div>
-                        <div class="text-secondary font-medium text-sm mb-3">Point Chaud | Bamako</div>
-                        <ul class="text-slate-600 text-sm space-y-2 list-disc list-inside">
-                            <li>Gestion des ressources humaines et communication interne.</li>
-                            <li>Création de supports visuels pour la marque.</li>
-                            <li>Animation de la page de marque et engagement communautaire.</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- Job 3 -->
-                <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active">
-                    <div class="flex items-center justify-center w-10 h-10 rounded-full border border-white bg-slate-300 group-[.is-active]:bg-indigo-500 text-slate-500 group-[.is-active]:text-white shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2">
-                        <i class="fas fa-bullhorn text-sm"></i>
-                    </div>
-                    <div class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] p-6 bg-white rounded-xl shadow-sm border border-slate-100">
-                        <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-2">
-                            <h3 class="font-bold text-lg text-dark">Responsable Commercial & Marketing</h3>
-                            <span class="text-xs font-semibold px-2 py-1 bg-blue-50 text-blue-600 rounded">2021 - 2022</span>
-                        </div>
-                        <div class="text-secondary font-medium text-sm mb-3">BIBA Sénégal | Dakar</div>
-                        <ul class="text-slate-600 text-sm space-y-2 list-disc list-inside">
-                            <li>Développement de stratégies digitales pour la vente immobilière.</li>
-                            <li>Gestion des campagnes sponsorisées.</li>
-                            <li>Génération de leads qualifiés.</li>
-                        </ul>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- Education Section -->
-    <section id="formation" class="py-20 bg-white">
-        <div class="container mx-auto px-6">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold text-dark mb-4">Formation</h2>
-                <div class="w-20 h-1 bg-secondary mx-auto rounded-full"></div>
-            </div>
-
-            <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-                <div class="p-6 border-l-4 border-primary bg-slate-50 rounded-r-lg hover:shadow-lg transition-all">
-                    <div class="flex items-start justify-between">
-                        <div>
-                            <h3 class="font-bold text-lg text-dark">Certificat en Com. Digitale & Dév. Web</h3>
-                            <p class="text-slate-500 mt-1">Simplon - Dakar</p>
-                        </div>
-                        <span class="text-primary font-bold bg-blue-100 px-3 py-1 rounded-full text-sm">2021</span>
-                    </div>
-                </div>
-
-                <div class="p-6 border-l-4 border-secondary bg-slate-50 rounded-r-lg hover:shadow-lg transition-all">
-                    <div class="flex items-start justify-between">
-                        <div>
-                            <h3 class="font-bold text-lg text-dark">Licence en Génie Informatique</h3>
-                            <p class="text-slate-500 mt-1">CSM - Dakar</p>
-                        </div>
-                        <span class="text-secondary font-bold bg-blue-100 px-3 py-1 rounded-full text-sm">2020 - 2021</span>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Interests -->
-            <div class="mt-16 text-center">
-                <h3 class="text-xl font-bold text-slate-400 mb-6 uppercase tracking-wider text-sm">Centres d'intérêt</h3>
-                <div class="flex justify-center gap-8 text-slate-500">
-                    <div class="flex flex-col items-center gap-2 hover:text-primary transition-colors">
-                        <i class="fas fa-plane text-2xl"></i>
-                        <span class="text-sm">Voyages</span>
-                    </div>
-                    <div class="flex flex-col items-center gap-2 hover:text-primary transition-colors">
-                        <i class="fas fa-film text-2xl"></i>
-                        <span class="text-sm">Cinéma</span>
-                    </div>
-                    <div class="flex flex-col items-center gap-2 hover:text-primary transition-colors">
-                        <i class="fas fa-masks-theater text-2xl"></i>
-                        <span class="text-sm">Théâtre</span>
-                    </div>
-                    <div class="flex flex-col items-center gap-2 hover:text-primary transition-colors">
-                        <i class="fas fa-running text-2xl"></i>
-                        <span class="text-sm">Sport</span>
-                    </div>
-                </div>
             </div>
         </div>
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="py-20 bg-dark text-white relative overflow-hidden">
-        <!-- Background decorative circle -->
-        <div class="absolute top-0 right-0 -mr-20 -mt-20 w-80 h-80 rounded-full bg-primary opacity-10 blur-3xl"></div>
-        
-        <div class="container mx-auto px-6 relative z-10">
-            <div class="grid md:grid-cols-2 gap-12 items-center">
-                <div>
-                    <h2 class="text-3xl md:text-4xl font-bold mb-6">Prêt à propulser votre présence digitale ?</h2>
-                    <p class="text-slate-300 mb-8 text-lg">
-                        Avec mon expertise en stratégie et ma vision technique, je peux vous aider à atteindre vos objectifs commerciaux. N'hésitez pas à me contacter.
-                    </p>
-                    
-                    <div class="space-y-6">
-                        <div class="flex items-center gap-4">
-                            <div class="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center text-secondary">
-                                <i class="fas fa-map-marker-alt text-xl"></i>
-                            </div>
-                            <div>
-                                <p class="text-sm text-slate-400">Localisation</p>
-                                <p class="font-medium">Kédougou, Sénégal</p>
-                            </div>
-                        </div>
-
-                        <div class="flex items-center gap-4">
-                            <div class="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center text-secondary">
-                                <i class="fas fa-phone text-xl"></i>
-                            </div>
-                            <div>
-                                <p class="text-sm text-slate-400">Téléphone</p>
-                                <a href="tel:+221784756101" class="font-medium hover:text-secondary transition-colors">+221 78 475 61 01</a>
-                            </div>
-                        </div>
-
-                        <div class="flex items-center gap-4">
-                            <div class="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center text-secondary">
-                                <i class="fas fa-envelope text-xl"></i>
-                            </div>
-                            <div>
-                                <p class="text-sm text-slate-400">Email</p>
-                                <a href="mailto:morytraorediallo@gmail.com" class="font-medium hover:text-secondary transition-colors">morytraorediallo@gmail.com</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="bg-white/5 backdrop-blur-sm p-8 rounded-2xl border border-white/10">
-                    <form onsubmit="event.preventDefault(); alert('Merci pour votre message ! (Ceci est une démo)');" class="space-y-4">
-                        <div>
-                            <label class="block text-sm font-medium text-slate-300 mb-1">Nom complet</label>
-                            <input type="text" class="w-full px-4 py-3 bg-white/10 border border-white/10 rounded-lg focus:outline-none focus:border-secondary text-white placeholder-white/30" placeholder="Votre nom">
-                        </div>
-                        <div>
-                            <label class="block text-sm font-medium text-slate-300 mb-1">Email</label>
-                            <input type="email" class="w-full px-4 py-3 bg-white/10 border border-white/10 rounded-lg focus:outline-none focus:border-secondary text-white placeholder-white/30" placeholder="votre@email.com">
-                        </div>
-                        <div>
-                            <label class="block text-sm font-medium text-slate-300 mb-1">Message</label>
-                            <textarea rows="4" class="w-full px-4 py-3 bg-white/10 border border-white/10 rounded-lg focus:outline-none focus:border-secondary text-white placeholder-white/30" placeholder="Comment puis-je vous aider ?"></textarea>
-                        </div>
-                        <button type="submit" class="w-full py-3 bg-secondary hover:bg-blue-600 text-white font-bold rounded-lg transition-colors">
-                            Envoyer le message
-                        </button>
-                    </form>
-                </div>
+    <section id="contact" class="py-20 bg-darker text-white">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-3xl font-bold mb-8">Travaillons ensemble</h2>
+            <div class="flex flex-col md:flex-row justify-center gap-8 mb-12">
+                <a href="mailto:morytraorediallo@gmail.com" class="flex items-center justify-center gap-3 px-6 py-4 bg-white/10 rounded-xl hover:bg-white/20 transition-all">
+                    <i class="fas fa-envelope text-primary"></i> morytraorediallo@gmail.com
+                </a>
+                <a href="tel:+221784756101" class="flex items-center justify-center gap-3 px-6 py-4 bg-white/10 rounded-xl hover:bg-white/20 transition-all">
+                    <i class="fas fa-phone text-primary"></i> +221 78 475 61 01
+                </a>
             </div>
+            <p class="text-slate-500 text-sm">&copy; 2024 Mory Traore Diallo. Tous droits réservés.</p>
         </div>
     </section>
 
-    <footer class="bg-slate-900 text-slate-500 py-8 border-t border-slate-800">
-        <div class="container mx-auto px-6 text-center">
-            <p>&copy; 2024 Mory Traore Diallo. Tous droits réservés.</p>
-        </div>
-    </footer>
-
     <script>
-        // Mobile Menu Toggle
+        // Menu Mobile
         const btn = document.getElementById('mobile-menu-btn');
         const menu = document.getElementById('mobile-menu');
 
@@ -409,18 +289,6 @@
         function toggleMenu() {
             menu.classList.add('hidden');
         }
-
-        // Navbar Scroll Effect
-        window.addEventListener('scroll', () => {
-            const navbar = document.getElementById('navbar');
-            if (window.scrollY > 10) {
-                navbar.classList.add('shadow-md');
-                navbar.classList.replace('py-4', 'py-2');
-            } else {
-                navbar.classList.remove('shadow-md');
-                navbar.classList.replace('py-2', 'py-4');
-            }
-        });
     </script>
 </body>
 </html>
