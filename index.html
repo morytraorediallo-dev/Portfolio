@@ -30,23 +30,31 @@
         
         /* Effet de verre pour le menu */
         .glass-nav {
-            background: rgba(15, 23, 42, 0.8);
+            background: rgba(15, 23, 42, 0.9);
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
+        }
+        
+        /* Styles pour les iframes vidéo */
+        .video-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
         }
     </style>
 </head>
 <body class="bg-slate-50 text-slate-800 font-sans antialiased">
 
-    <!-- Navigation (Style Sombre pour faire ressortir le contenu) -->
+    <!-- Navigation -->
     <nav class="fixed w-full z-50 glass-nav border-b border-white/10 transition-all duration-300" id="navbar">
         <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="#" class="text-2xl font-bold text-white tracking-tighter">Mory Traoré<span class="text-primary"> Diallo</span></a>
+            <a href="#" class="text-2xl font-bold text-white tracking-tighter">Mory<span class="text-primary">.TV</span></a>
             
             <!-- Desktop Menu -->
             <div class="hidden md:flex space-x-8 font-medium text-slate-300">
                 <a href="#about" class="hover:text-white transition-colors">À propos</a>
-                <a href="#portfolio" class="text-white font-bold border-b-2 border-primary">Mes Vidéos</a>
+                <a href="#portfolio" class="hover:text-white transition-colors">Vidéos</a>
+                <a href="#stats" class="text-white font-bold border-b-2 border-primary">Résultats</a>
                 <a href="#experience" class="hover:text-white transition-colors">Parcours</a>
                 <a href="#contact" class="px-5 py-2 bg-primary text-white rounded-full hover:bg-blue-600 transition-colors">Me Contacter</a>
             </div>
@@ -61,7 +69,8 @@
         <div id="mobile-menu" class="hidden md:hidden bg-darker border-t border-white/10 p-4 absolute w-full shadow-lg">
             <div class="flex flex-col space-y-4 font-medium text-center text-slate-300">
                 <a href="#about" class="py-2 hover:text-white" onclick="toggleMenu()">À propos</a>
-                <a href="#portfolio" class="py-2 text-white font-bold bg-white/10 rounded-lg" onclick="toggleMenu()">Mes Vidéos</a>
+                <a href="#portfolio" class="py-2 hover:text-white" onclick="toggleMenu()">Vidéos</a>
+                <a href="#stats" class="py-2 text-white font-bold bg-white/10 rounded-lg" onclick="toggleMenu()">Résultats & Stats</a>
                 <a href="#experience" class="py-2 hover:text-white" onclick="toggleMenu()">Parcours</a>
                 <a href="#contact" class="py-2 text-primary font-bold" onclick="toggleMenu()">Me Contacter</a>
             </div>
@@ -69,7 +78,7 @@
     </nav>
 
     <!-- Hero Section -->
-    <section id="about" class="relative min-h-[90vh] flex items-center justify-center pt-20 overflow-hidden bg-darker text-white">
+    <section id="about" class="relative min-h-[85vh] flex items-center justify-center pt-20 overflow-hidden bg-darker text-white">
         <!-- Background Gradients -->
         <div class="absolute top-0 left-0 w-full h-full overflow-hidden z-0">
             <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/20 rounded-full blur-[100px]"></div>
@@ -77,146 +86,171 @@
         </div>
 
         <div class="container mx-auto px-6 relative z-10 grid md:grid-cols-2 gap-12 items-center">
-            <div class="text-center md:text-left">
+            <div class="text-center md:text-left animate-fade-in">
                 <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 border border-white/20 text-sm font-medium text-primary mb-6">
                     <span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
                     Disponible pour collaborations
                 </div>
                 <h1 class="text-4xl md:text-6xl font-bold mb-6 leading-tight">
-                    Stratégie Digitale & <br>
-                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500">Création Vidéo</span>
+                    Je booste votre <br>
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500">Croissance Digitale</span>
                 </h1>
                 <p class="text-slate-400 mb-8 max-w-lg mx-auto md:mx-0 text-lg">
-                    Je transforme vos idées en contenus viraux (Reels, TikTok). Expert en croissance d'audience avec un background technique en Génie Informatique.
+                    Stratégie, Création de contenu viral et Analyse de données. Je transforme les vues en opportunités commerciales.
                 </p>
                 <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
-                    <a href="#portfolio" class="px-8 py-4 bg-primary text-white rounded-lg hover:bg-blue-600 transition-all font-bold flex items-center justify-center gap-2">
-                        <i class="fas fa-play-circle"></i> Voir mes réalisations
+                    <a href="#stats" class="px-8 py-4 bg-primary text-white rounded-lg hover:bg-blue-600 transition-all font-bold flex items-center justify-center gap-2 shadow-lg shadow-blue-900/50">
+                        <i class="fas fa-chart-line"></i> Voir mes résultats
                     </a>
-                    <a href="#contact" class="px-8 py-4 border border-white/20 hover:bg-white/10 rounded-lg transition-all text-center">
-                        Me contacter
+                    <a href="#portfolio" class="px-8 py-4 border border-white/20 hover:bg-white/10 rounded-lg transition-all text-center">
+                        Voir mes vidéos
                     </a>
                 </div>
             </div>
             
-            <!-- Hero Visual (Abstract Phone) -->
+            <!-- Hero Visual -->
             <div class="flex justify-center md:justify-end">
-                <div class="relative w-64 h-[500px] bg-gray-900 rounded-[2.5rem] border-8 border-gray-800 shadow-2xl overflow-hidden transform rotate-[-5deg] hover:rotate-0 transition-all duration-500">
-                    <!-- Screen Content -->
-                    <div class="absolute inset-0 bg-gray-800 flex flex-col">
-                        <!-- Header Mockup -->
-                        <div class="h-14 bg-gray-900/50 backdrop-blur flex items-center justify-between px-4 pt-4">
-                            <div class="w-8 h-8 rounded-full bg-gray-600"></div>
-                            <div class="w-20 h-4 rounded-full bg-gray-600"></div>
-                        </div>
-                        <!-- Video Area Mockup -->
-                        <div class="flex-1 bg-gradient-to-b from-gray-700 to-gray-900 flex items-center justify-center relative">
-                            <i class="fas fa-play text-4xl text-white/50"></i>
-                            
-                            <!-- Floating Stats -->
-                            <div class="absolute bottom-20 right-4 flex flex-col gap-4 text-white">
-                                <div class="flex flex-col items-center gap-1">
-                                    <i class="fas fa-heart text-2xl"></i>
-                                    <span class="text-xs">12k</span>
-                                </div>
-                                <div class="flex flex-col items-center gap-1">
-                                    <i class="fas fa-comment text-2xl"></i>
-                                    <span class="text-xs">450</span>
-                                </div>
-                            </div>
-                        </div>
+                <div class="relative w-72 h-[500px] bg-gray-900 rounded-[2.5rem] border-8 border-gray-800 shadow-2xl overflow-hidden transform rotate-[-3deg] hover:rotate-0 transition-all duration-500 ring-1 ring-white/20">
+                    <div class="absolute inset-0 bg-gray-800 flex flex-col items-center justify-center text-slate-500">
+                         <i class="fas fa-chart-bar text-6xl mb-4 text-primary"></i>
+                         <p class="font-bold text-white text-xl">+150%</p>
+                         <p class="text-sm">Croissance moyenne</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- SECTION PORTFOLIO VIDÉO (NOUVEAU) -->
+    <!-- SECTION VIDÉOS (YOUTUBE METHOD) -->
     <section id="portfolio" class="py-20 bg-white">
         <div class="container mx-auto px-6">
             <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold text-dark mb-4">Mes Réalisations</h2>
+                <h2 class="text-3xl md:text-4xl font-bold text-dark mb-4">Mes Vidéos</h2>
                 <div class="w-20 h-1 bg-primary mx-auto rounded-full mb-4"></div>
-                <p class="text-slate-600 max-w-2xl mx-auto">
-                    Exemples de contenus TikTok, Reels et montages promotionnels.
-                    <br><span class="text-sm text-slate-400 italic">(Cliquez sur les placeholders pour imaginer vos vidéos ici)</span>
-                </p>
+                <p class="text-slate-600">Sélection de contenus performants (TikTok/Reels/Shorts)</p>
             </div>
 
-            <!-- Grid Vidéos (Format Vertical Smartphone) -->
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
 
-                <!-- VIDÉO 1 -->
-                <div class="group relative rounded-2xl overflow-hidden shadow-lg bg-black aspect-[9/16] border border-gray-200">
-                    <!-- Placeholder Image (A remplacer par votre miniature) -->
-                    <div class="absolute inset-0 bg-gradient-to-br from-blue-900 to-slate-900 flex items-center justify-center group-hover:scale-105 transition-transform duration-500">
-                        <!-- Icône Play -->
-                        <div class="w-16 h-16 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center group-hover:bg-primary transition-colors cursor-pointer">
-                            <i class="fas fa-play text-2xl text-white pl-1"></i>
-                        </div>
-                    </div>
-                    
-                    <!-- Info Overlay -->
-                    <div class="absolute bottom-0 left-0 w-full p-6 bg-gradient-to-t from-black/90 to-transparent">
-                        <span class="bg-primary text-white text-xs px-2 py-1 rounded mb-2 inline-block">TikTok</span>
-                        <h3 class="text-white font-bold text-lg">Nextan Mali Promo</h3>
-                        <p class="text-slate-300 text-sm">Montage dynamique & Storytelling</p>
-                    </div>
-
-                    <!-- NOTE POUR MORY: Pour mettre une vraie vidéo, supprimez tout ce qui est dans ce DIV et mettez : 
-                    <video src="votre-video.mp4" controls class="w-full h-full object-cover"></video> 
-                    -->
+                <!-- VIDEO 1 -->
+                <div class="group relative rounded-2xl overflow-hidden shadow-lg bg-black aspect-[9/16] border border-gray-200 video-container">
+                    <!-- INSTRUCTION: Remplacez l'URL dans src="" par le lien 'Embed' de votre vidéo YouTube -->
+                    <iframe 
+                        src="https://www.youtube.com/embed/dQw4w9WgXcQ" 
+                        title="Vidéo 1" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen>
+                    </iframe>
+                    <div class="absolute top-4 right-4 bg-red-600 text-white text-xs px-2 py-1 rounded shadow">YouTube</div>
                 </div>
 
-                <!-- VIDÉO 2 -->
-                <div class="group relative rounded-2xl overflow-hidden shadow-lg bg-black aspect-[9/16] border border-gray-200">
-                    <div class="absolute inset-0 bg-gradient-to-br from-purple-900 to-slate-900 flex items-center justify-center group-hover:scale-105 transition-transform duration-500">
-                        <div class="w-16 h-16 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center group-hover:bg-purple-600 transition-colors cursor-pointer">
-                            <i class="fas fa-play text-2xl text-white pl-1"></i>
-                        </div>
-                    </div>
-                    
-                    <div class="absolute bottom-0 left-0 w-full p-6 bg-gradient-to-t from-black/90 to-transparent">
-                        <span class="bg-pink-600 text-white text-xs px-2 py-1 rounded mb-2 inline-block">Instagram Reels</span>
-                        <h3 class="text-white font-bold text-lg">Point Chaud Event</h3>
-                        <p class="text-slate-300 text-sm">Couverture d'événement & Interview</p>
-                    </div>
+                <!-- VIDEO 2 -->
+                <div class="group relative rounded-2xl overflow-hidden shadow-lg bg-black aspect-[9/16] border border-gray-200 video-container">
+                    <iframe 
+                        src="https://www.youtube.com/embed/dQw4w9WgXcQ" 
+                        title="Vidéo 2" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen>
+                    </iframe>
+                    <div class="absolute top-4 right-4 bg-red-600 text-white text-xs px-2 py-1 rounded shadow">YouTube</div>
                 </div>
 
-                <!-- VIDÉO 3 -->
-                <div class="group relative rounded-2xl overflow-hidden shadow-lg bg-black aspect-[9/16] border border-gray-200">
-                    <div class="absolute inset-0 bg-gradient-to-br from-green-900 to-slate-900 flex items-center justify-center group-hover:scale-105 transition-transform duration-500">
-                        <div class="w-16 h-16 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center group-hover:bg-green-600 transition-colors cursor-pointer">
-                            <i class="fas fa-play text-2xl text-white pl-1"></i>
-                        </div>
-                    </div>
-                    
-                    <div class="absolute bottom-0 left-0 w-full p-6 bg-gradient-to-t from-black/90 to-transparent">
-                        <span class="bg-blue-400 text-white text-xs px-2 py-1 rounded mb-2 inline-block">Campagne Ads</span>
-                        <h3 class="text-white font-bold text-lg">BIBA Immobilier</h3>
-                        <p class="text-slate-300 text-sm">Présentation bien immobilier</p>
-                    </div>
+                <!-- VIDEO 3 -->
+                <div class="group relative rounded-2xl overflow-hidden shadow-lg bg-black aspect-[9/16] border border-gray-200 video-container">
+                    <iframe 
+                        src="https://www.youtube.com/embed/dQw4w9WgXcQ" 
+                        title="Vidéo 3" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen>
+                    </iframe>
+                    <div class="absolute top-4 right-4 bg-red-600 text-white text-xs px-2 py-1 rounded shadow">YouTube</div>
                 </div>
 
-            </div>
-            
-            <div class="mt-12 text-center">
-                 <a href="#contact" class="inline-flex items-center gap-2 text-primary font-bold hover:underline">
-                    Voir plus sur mes réseaux <i class="fas fa-arrow-right"></i>
-                 </a>
             </div>
         </div>
     </section>
 
-    <!-- Skills Section (Compact) -->
-    <section id="competences" class="py-16 bg-slate-50">
+    <!-- SECTION STATISTIQUES (NOUVEAU) -->
+    <section id="stats" class="py-20 bg-slate-100">
         <div class="container mx-auto px-6">
-            <h2 class="text-2xl font-bold text-dark mb-8 text-center">Compétences Clés</h2>
-            <div class="flex flex-wrap justify-center gap-4">
-                <span class="px-6 py-3 bg-white shadow-sm rounded-xl text-dark font-medium border border-slate-200"><i class="fab fa-tiktok text-pink-500 mr-2"></i>TikTok & Reels</span>
-                <span class="px-6 py-3 bg-white shadow-sm rounded-xl text-dark font-medium border border-slate-200"><i class="fas fa-chart-line text-blue-500 mr-2"></i>Analyse de données</span>
-                <span class="px-6 py-3 bg-white shadow-sm rounded-xl text-dark font-medium border border-slate-200"><i class="fas fa-bullhorn text-orange-500 mr-2"></i>Publicité (Ads)</span>
-                <span class="px-6 py-3 bg-white shadow-sm rounded-xl text-dark font-medium border border-slate-200"><i class="fas fa-laptop-code text-indigo-500 mr-2"></i>Dév. Web & Maintenance</span>
+            <div class="text-center mb-16">
+                <span class="text-primary font-bold tracking-wider uppercase text-sm">Preuves de performance</span>
+                <h2 class="text-3xl md:text-4xl font-bold text-dark mt-2 mb-4">Impact & Résultats</h2>
+                <div class="w-20 h-1 bg-secondary mx-auto rounded-full mb-6"></div>
+                <p class="text-slate-600 max-w-2xl mx-auto">
+                    Voici quelques captures d'écran des tableaux de bord que je gère. La data ne ment pas.
+                </p>
+            </div>
+
+            <!-- Grid Screenshots -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+                
+                <!-- STAT 1 -->
+                <!-- INSTRUCTION: 
+                     1. Uploadez votre capture d'écran sur GitHub (ex: stat1.jpg).
+                     2. Changez src="placeholder-stat.jpg" par le nom de votre image (ex: src="stat1.jpg"). 
+                -->
+                <div class="bg-white p-4 rounded-2xl shadow-md hover:shadow-xl transition-shadow duration-300">
+                    <div class="relative overflow-hidden rounded-xl bg-slate-200 aspect-[4/3] group cursor-zoom-in">
+                        <!-- Image Placeholder -->
+                        <img src="https://via.placeholder.com/600x450?text=Capture+Stats+1+(Upload+Image)" alt="Statistiques Engagement" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500">
+                        
+                        <!-- Overlay au survol -->
+                        <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white font-bold">
+                            Voir le détail
+                        </div>
+                    </div>
+                    <div class="mt-4">
+                        <h3 class="text-xl font-bold text-dark">Croissance d'audience</h3>
+                        <p class="text-slate-500 text-sm">Ex: +200% d'abonnés en 3 mois pour Nextan Mali</p>
+                    </div>
+                </div>
+
+                <!-- STAT 2 -->
+                <div class="bg-white p-4 rounded-2xl shadow-md hover:shadow-xl transition-shadow duration-300">
+                    <div class="relative overflow-hidden rounded-xl bg-slate-200 aspect-[4/3] group cursor-zoom-in">
+                        <img src="https://via.placeholder.com/600x450?text=Capture+Stats+2+(Upload+Image)" alt="Statistiques Ventes" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500">
+                        
+                        <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white font-bold">
+                            Voir le détail
+                        </div>
+                    </div>
+                    <div class="mt-4">
+                        <h3 class="text-xl font-bold text-dark">Portée des publications</h3>
+                        <p class="text-slate-500 text-sm">Ex: 100k vues atteintes sur une campagne organique</p>
+                    </div>
+                </div>
+
+                <!-- STAT 3 -->
+                <div class="bg-white p-4 rounded-2xl shadow-md hover:shadow-xl transition-shadow duration-300">
+                    <div class="relative overflow-hidden rounded-xl bg-slate-200 aspect-[4/3] group cursor-zoom-in">
+                        <img src="https://via.placeholder.com/600x450?text=Capture+Stats+3+(Upload+Image)" alt="Statistiques Interaction" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500">
+                        
+                        <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white font-bold">
+                            Voir le détail
+                        </div>
+                    </div>
+                    <div class="mt-4">
+                        <h3 class="text-xl font-bold text-dark">Taux d'engagement</h3>
+                        <p class="text-slate-500 text-sm">Amélioration de l'interaction communauté</p>
+                    </div>
+                </div>
+
+                <!-- STAT 4 -->
+                <div class="bg-white p-4 rounded-2xl shadow-md hover:shadow-xl transition-shadow duration-300">
+                    <div class="relative overflow-hidden rounded-xl bg-slate-200 aspect-[4/3] group cursor-zoom-in">
+                        <img src="https://via.placeholder.com/600x450?text=Capture+Stats+4+(Upload+Image)" alt="Autre Statistique" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500">
+                        
+                        <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white font-bold">
+                            Voir le détail
+                        </div>
+                    </div>
+                    <div class="mt-4">
+                        <h3 class="text-xl font-bold text-dark">Campagnes Ads</h3>
+                        <p class="text-slate-500 text-sm">Retour sur investissement (ROI)</p>
+                    </div>
+                </div>
+
             </div>
         </div>
     </section>
@@ -231,7 +265,7 @@
             <div class="max-w-3xl mx-auto space-y-8 pl-4 border-l-2 border-slate-200">
                 
                 <!-- Item 1 -->
-                <div class="relative pl-8">
+                <div class="relative pl-8 hover:translate-x-2 transition-transform duration-300">
                     <div class="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-primary border-4 border-white shadow"></div>
                     <div class="text-sm text-primary font-bold mb-1">2023 - 2024</div>
                     <h3 class="text-xl font-bold text-dark">Directeur Commercial & Digital</h3>
@@ -240,7 +274,7 @@
                 </div>
 
                 <!-- Item 2 -->
-                <div class="relative pl-8">
+                <div class="relative pl-8 hover:translate-x-2 transition-transform duration-300">
                     <div class="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-slate-300 border-4 border-white shadow"></div>
                     <div class="text-sm text-slate-500 font-bold mb-1">2022 - 2023</div>
                     <h3 class="text-xl font-bold text-dark">Chef du Personnel & Com. Interne</h3>
@@ -249,7 +283,7 @@
                 </div>
 
                 <!-- Item 3 -->
-                <div class="relative pl-8">
+                <div class="relative pl-8 hover:translate-x-2 transition-transform duration-300">
                     <div class="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-slate-300 border-4 border-white shadow"></div>
                     <div class="text-sm text-slate-500 font-bold mb-1">2021 - 2022</div>
                     <h3 class="text-xl font-bold text-dark">Responsable Commercial & Marketing</h3>
@@ -292,4 +326,3 @@
     </script>
 </body>
 </html>
-
